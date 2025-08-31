@@ -1,26 +1,66 @@
-@import "tailwindcss";
+/* global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Light Mode Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-navbar: #5c0000; /* dark red navbar */
+  --color-bg: #f5f5dc; /* beige background */
+  --color-font: #000000; /* black font */
+  --color-border: #ffffff; /* white border */
+  --color-hover: #b22222; /* hover dark red */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark Mode Variables */
+.dark {
+  --color-bg: #121212; /* blackish background */
+  --color-font: #ffffff; /* white font */
+  --color-hover: #ff4c4c; /* bright hover in dark mode */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Apply colors globally */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-font);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-font);
+}
+
+a:hover {
+  color: var(--color-hover);
+}
+
+/* Borders for cards, widgets, buttons */
+.border-white {
+  border-color: var(--color-border);
+}
+
+/* Tailwind overrides if needed */
+button, input, select, textarea {
+  border-color: var(--color-border);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
